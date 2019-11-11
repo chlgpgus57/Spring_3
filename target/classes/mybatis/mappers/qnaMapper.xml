@@ -6,11 +6,11 @@
   
 <mapper namespace="qnaMapper">
   
-  <select id="qnaList" parameterType="com.hh.s3.model.board.qnaVO" resultType="com.hh.s3.model.board.qnaVO">
-  	select * from qna
+  <select id="qnaList" parameterType="java.util.List" resultType="com.hh.s3.model.board.QnaVO">
+  	select * from qna order by num desc
   </select>
   
-  <insert id="qnaInsert" parameterType="com.hh.s3.model.board.qnaVO">
+  <insert id="qnaInsert" parameterType="com.hh.s3.model.board.QnaVO">
   	insert into qna values(board_seq.nextval , #{title}, #{writer},#{contents}, sysdate, 0,0,0,0)
   </insert>
 </mapper>

@@ -28,6 +28,6 @@ public class QnaDAO {
 	//insert
 	public int qnaInsert(QnaVO qnaVO) throws Exception{
 		
-		return sqlSession.insert(namespace+"qnaInsert");
+		return sqlSession.insert(namespace+"qnaInsert",qnaVO);
 	}
 }

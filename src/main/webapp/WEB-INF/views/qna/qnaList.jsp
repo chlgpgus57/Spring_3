@@ -16,29 +16,36 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>num</th>
+        <th>title</th>
+        <th>writer</th>
+        <th>contents</th>
+        <th>reg_date</th>
+        <th>hit</th>
+        <th>ref</th>
+        <th>step</th>
+        <th>depth</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
+   <tbody>
+		 	<c:forEach items="${list}" var="qnaVO">
+				<tr>
+					<td>${qnaVO.num}</td>
+					<td><a href="noticeSelect?num=${qnaVO.num}">${qnaVO.title}</a></td>
+					<td>${qnaVO.writer}</td>
+					<td>${qnaVO.contents}</td>
+					<td>${qnaVO.reg_date}</td>
+					<td>${qnaVO.hit}</td>
+					<td>${qnaVO.ref}</td>
+					<td>${qnaVO.step}</td>
+					<td>${qnaVO.depth}</td>
+				</tr>
+			</c:forEach>
+
+	    </tbody>
   </table>
+  
+  <a class="btn btn-primary" href="qnaInsert">글쓰기</a>
 </div>
 
 
