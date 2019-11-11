@@ -6,7 +6,7 @@
 <mapper namespace="noticeMapper">
 
 	
-	<select id="noticeList" parameterType="java.util.Map" resultType="com.hh.s3.model.board.NoticeVO">
+	<select id="noticeList" parameterType="com.hh.s3.util.RowMaker" resultType="com.hh.s3.model.board.NoticeVO">
   		select * from
 			(select N.*, rownum R from
 				(select * from notice order by num desc) N)

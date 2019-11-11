@@ -14,7 +14,7 @@
 	
 	<div class="container">
 	  <h2>Notice Write Page</h2>
-	
+
 	  <form action="noticeWrite" method="post">
 	    <div class="form-group">
 	      <label for="title">TITLE : </label>
