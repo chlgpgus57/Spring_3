@@ -1,12 +1,17 @@
 package com.hh.s3.dao.board;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-<<<<<<< Updated upstream
-@Repository
-public class NoticeDAO {
 
-=======
+
+
 import com.hh.s3.model.board.NoticeVO;
 import com.hh.s3.util.Pager;
 
@@ -61,5 +66,4 @@ public class NoticeDAO {
 		return sqlSession.update(NAMESPACE+"noticeUpdate", noticeVO);
 
 	}
->>>>>>> Stashed changes
 }
