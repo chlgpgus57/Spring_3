@@ -11,9 +11,9 @@
 <body>
 <c:import url="../layout/nav.jsp"/>
 <div>
-	<form action="./qnaList">
+	<form id ="frm" action="./qnaList">
 	
-		<input type="hidden" id=""curPage value="1" name="curPage"> 
+		<input type="hidden" id="curPage" value="1" name="curPage"> 
 		<select name="kind">
 			<option id="kt" value="kt">Title</option>
 			<option id="kc" value="kc">Contents</option>
@@ -27,6 +27,8 @@
 
 
 <div class="container">
+	  <div class="table-responsive">          
+
   <h2>QnA Table</h2>
   <table class="table">
     <thead>
@@ -68,10 +70,11 @@
     </c:if>
    
   </ul>
-  
- 
+
+	<a class="btn btn-primary" href="qnaInsert">글쓰기</a>
+	</div>
 </div>
- 	<a class="btn btn-primary" href="qnaInsert">글쓰기</a>
+
 
 	<script type="text/javascript">
 		var kind = '${pager.kind}';
@@ -80,9 +83,12 @@
 		}
 		
 		$("#"+kind).prop("selected", true);
-		${".list"}.click(function() {
-		  ${"#curPage"}.val($(this().attr("id"));
-		  ${"#frm"}.submit();
+		
+		$(".list").click(function() {
+			
+		  $("#curPage").val($(this).attr("id"));
+		  $("#frm").submit();
+		  
 		});
 	
 	</script>

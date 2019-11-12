@@ -54,7 +54,7 @@ public class QnaController {
 	@RequestMapping(value = "qnaInsert", method = RequestMethod.GET)
 	public String qnaInsert() throws Exception{
 
-		return "qna/qnaInsert";
+		return "/qna/qnaInsert";
 
 	}
 

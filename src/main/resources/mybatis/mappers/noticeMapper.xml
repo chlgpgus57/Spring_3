@@ -11,10 +11,10 @@
   			from (select N.*, rownum R 
   			from (select * from notice 
   				<choose>
-  					<when test="">
+  					<when test="kind=='kt'">
   						where title like '%'||#{search}||'%'
   					</when>
-  					<when test="">
+  					<when test="kind=='kw'">
   						where writer like '%'||#{search}||'%'
   					</when>
   					<otherwise>
@@ -25,8 +25,19 @@
 			where R between #{startRow} and #{lastRow}
   	</select>
 	
-  	<select id="noticeCount" resultType="java.lang.Integer">
+  	<select id="noticeCount" parameterType="com.hh.s3.util.Pager" resultType="java.lang.Integer">
 	  	select count(num) from notice
+	  	<choose>
+	  		<when test="kind == 'kt'">
+  				 where title like '%'||#{search}||'%'
+  			</when>
+  			<when test="kind == 'kw'">
+  				 where writer like '%'||#{search}||'%'
+  			</when>
+  			<otherwise>
+  				 where contents like '%'||#{search}||'%'		
+  			</otherwise>	
+	  	</choose>	
   	</select>
   	
 	<select id="noticeSelect" resultType="com.hh.s3.model.board.NoticeVO" parameterType="java.lang.Integer">

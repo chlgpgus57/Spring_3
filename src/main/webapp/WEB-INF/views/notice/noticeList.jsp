@@ -17,6 +17,7 @@
 
 <div>
 	<form id="frm" action="./noticeList">
+		<input type="hidden" id="curPage" value="1" name ="curPage">
 		<select name="kind">
 			<option id="kt" value="kt">Title</option>
 			<option id="kc" value="kc">Contents</option>
@@ -45,14 +46,14 @@
 	      </tr>
 	    </thead>
 	    <tbody>
-		 	<c:forEach items="${list}" var="noticeDTO">
+		 	<c:forEach items="${list}" var="noticeVO">
 			<tr>
-				<td>${noticeDTO.num}</td>
-				<td><a href="noticeSelect?num=${noticeDTO.num}">${noticeDTO.title}</a></td>
-				<td>${noticeDTO.writer}</td>
-				<td>${noticeDTO.contents}</td>
-				<td>${noticeDTO.reg_date}</td>
-				<td>${noticeDTO.hit}</td>
+				<td>${noticeVO.num}</td>
+				<td><a href="noticeSelect?num=${noticeVO.num}">${noticeVO.title}</a></td>
+				<td>${noticeVO.writer}</td>
+				<td>${noticeVO.contents}</td>
+				<td>${noticeVO.reg_date}</td>
+				<td>${noticeVO.hit}</td>
 			</tr>
 		</c:forEach>
 	
@@ -93,16 +94,18 @@
 	</div>
 </form>
 <script type="text/javascript">
+
 	var kind= '${pager.kind}';
+	
 	if(kind==''){
 		kind="kt";
 	}
 	
 	$("#"+kind).prop("selected",true);
-	${".list"}.click(function() {
+	$(".list").click(function() {
 		
-		${"#curPage"}.val($(this).attr("id"));
-		${"#frm"}.submit();
+		$("#curPage").val($(this).attr("id"));
+		$("#frm").submit();
 		
 	});
 </script>
