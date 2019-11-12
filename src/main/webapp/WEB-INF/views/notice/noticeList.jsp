@@ -29,7 +29,6 @@
 </div>
 
 
-
 <form action="./noticeWrite.jsp" method="get">
 	<div class="container" >
 	  <div class="table-responsive">          
@@ -46,7 +45,8 @@
 	      </tr>
 	    </thead>
 	    <tbody>
-		 	<c:forEach items="${list}" var="noticeVO">
+
+		 <c:forEach items="${list}" var="noticeVO">
 			<tr>
 				<td>${noticeVO.num}</td>
 				<td><a href="noticeSelect?num=${noticeVO.num}">${noticeVO.title}</a></td>
@@ -54,7 +54,7 @@
 				<td>${noticeVO.contents}</td>
 				<td>${noticeVO.reg_date}</td>
 				<td>${noticeVO.hit}</td>
-			</tr>
+
 		</c:forEach>
 	
 	     
@@ -69,7 +69,6 @@
 	  	
 	  		<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
 	  			<li><span id="${i}" class="list">${i}</span></li>
-	  		
 	  		</c:forEach>
 	  		
 	  		<c:if test="${pager.curBlock lt pager.totalBlock}">
@@ -93,6 +92,7 @@
 	  </div>
 	</div>
 </form>
+
 <script type="text/javascript">
 
 	var kind= '${pager.kind}';
@@ -109,5 +109,6 @@
 		
 	});
 </script>
+
 </body>
 </html>

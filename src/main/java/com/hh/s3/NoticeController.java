@@ -32,16 +32,7 @@ public class NoticeController {
 		List<NoticeVO> ar= noticeService.noticeList(pager);
 		model.addAttribute("list", ar);
 		model.addAttribute("pager", pager);
-		
-	}
-	
-	@RequestMapping(value = "noticeSelect")
-	public void noticeSelect(Model model, int num) throws Exception{
-		
-		NoticeVO noticeVO = noticeService.noticeSelect(num);
-		
-		model.addAttribute("noticeVO", noticeVO);
-	
+
 	}
 	
 	@RequestMapping(value = "noticeWrite" , method = RequestMethod.POST)

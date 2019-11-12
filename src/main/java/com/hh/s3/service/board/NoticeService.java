@@ -10,6 +10,8 @@ import com.hh.s3.dao.board.NoticeDAO;
 import com.hh.s3.model.board.NoticeVO;
 import com.hh.s3.util.Pager;
 
+
+
 @Service
 public class NoticeService {
 	
@@ -19,11 +21,13 @@ public class NoticeService {
 	//List
 	public List<NoticeVO> noticeList(Pager pager)throws Exception{
 
+
 		pager.makeRow();
 		
 		pager.makePage(noticeDAO.noticeCount(pager));
 		
 		return noticeDAO.noticeList(pager);
+
 	}
 	
 	

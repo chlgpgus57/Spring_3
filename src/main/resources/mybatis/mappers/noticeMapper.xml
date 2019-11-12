@@ -38,7 +38,7 @@
   				 where contents like '%'||#{search}||'%'		
   			</otherwise>	
 	  	</choose>	
-  	</select>
+	</select>
   	
 	<select id="noticeSelect" resultType="com.hh.s3.model.board.NoticeVO" parameterType="java.lang.Integer">
 		select * from notice where num=#{num}

@@ -2,8 +2,6 @@ package com.hh.s3.util;
 
 public class Pager {
 
-
-
 	//curpage : 페이지 번호 	perpage : 페이지당 출력되어야 할 글의 갯수(10)
 	
 	private Integer curPage; //auto rapping auro unboxing 해줌 .. 현재 페이지 번호
@@ -88,6 +86,8 @@ public class Pager {
 		this.lastRow = lastRow;
 	}
 
+
+
 	public Integer getStartNum() {
 		return startNum;
 	}
@@ -95,6 +95,7 @@ public class Pager {
 	public void setStartNum(Integer startNum) {
 		this.startNum = startNum;
 	}
+
 
 	public Integer getLastNum() {
 		return lastNum;
@@ -166,6 +167,5 @@ public class Pager {
 		this.lastRow = this.getCurPage()*this.getPerPage();
 		
 	
-		
 	}
 }

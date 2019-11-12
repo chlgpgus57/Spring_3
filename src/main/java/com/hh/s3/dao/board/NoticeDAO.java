@@ -11,9 +11,11 @@ import org.springframework.stereotype.Repository;
 
 
 
-
 import com.hh.s3.model.board.NoticeVO;
+
 import com.hh.s3.util.Pager;
+
+
 
 @Repository
 public class NoticeDAO {
@@ -35,6 +37,7 @@ public class NoticeDAO {
 		return sqlSession.insert(NAMESPACE+"noticeInsert", noticeVO);
 
 	}
+
 
 
 	public int noticeCount(Pager pager) throws Exception{
