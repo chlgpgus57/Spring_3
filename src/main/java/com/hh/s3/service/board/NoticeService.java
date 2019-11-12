@@ -23,13 +23,10 @@ public class NoticeService {
 
 
 		pager.makeRow();
-		
 		pager.makePage(noticeDAO.noticeCount(pager));
-		
 		return noticeDAO.noticeList(pager);
 
 	}
-	
 	
 	
 	//select

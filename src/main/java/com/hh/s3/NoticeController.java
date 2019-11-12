@@ -26,6 +26,7 @@ public class NoticeController {
 	//list : /notice/noticeList GET
 	//view : /WEB-INF/views/notice/noticeList.jsp
 	
+	//list
 	@RequestMapping(value = "noticeList")
 	public void noticeList(Model model, Pager pager) throws Exception {
 
@@ -35,6 +36,14 @@ public class NoticeController {
 
 	}
 	
+	@RequestMapping(value="noticeSelect")
+	public void noticeSelect(int num) throws Exception{
+		
+		noticeService.noticeSelect(num);
+	}
+	
+	
+	//insert post
 	@RequestMapping(value = "noticeWrite" , method = RequestMethod.POST)
 	public ModelAndView noticeInsert(NoticeVO noticeVO) throws Exception{
 		
@@ -51,16 +60,16 @@ public class NoticeController {
 		mv.addObject("path", "noticeList");
 		mv.setViewName("common/common_result");
 		return mv;
-		
 	}
 	
+	//insert get
 	@RequestMapping(value = "noticeWrite", method = RequestMethod.GET)
 	public String noticeInsert() throws Exception{
 		
 		return "notice/noticeWrite";
 	}
 	
-	
+	//update post
 	@RequestMapping(value = "noticeUpdate" , method=RequestMethod.POST)
 	public ModelAndView noticeUpdate(NoticeVO noticeVO) throws Exception{
 		
@@ -80,6 +89,7 @@ public class NoticeController {
 		return mv;
 	}
 	
+	//update get
 	@RequestMapping(value = "noticeUpdate", method = RequestMethod.GET)
 	public String noticeUpdate(Model model, int num) throws Exception{
 		
@@ -89,6 +99,7 @@ public class NoticeController {
 		return "notice/noticeUpdate";
 	}
 	
+	//delete
 	@RequestMapping(value = "noticeDelete")
 	public ModelAndView noticeDelete(int num) throws Exception{
 		
