@@ -44,6 +44,15 @@
 
 	    </tbody>
   </table>
+   <ul class="pagination">
+   
+   	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+   
+	    <li><a href="./qnaList?curPage=${i}">${i}</a></li>
+	
+	</c:forEach>
+   
+  </ul>
   
   <a class="btn btn-primary" href="qnaInsert">글쓰기</a>
 </div>

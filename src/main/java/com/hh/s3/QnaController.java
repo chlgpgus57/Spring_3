@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hh.s3.dao.board.QnaService;
 import com.hh.s3.model.board.QnaVO;
+import com.hh.s3.util.Pager;
 
 @Controller
 @RequestMapping(value = "/qna/**")
@@ -21,9 +22,9 @@ public class QnaController {
 	private QnaService qnaService;
 	
 	@RequestMapping(value = "qnaList")
-	public void qnaList(Model model) throws Exception{
+	public void qnaList(Model model, Pager pager) throws Exception{
 		
-		List<QnaVO> ar = qnaService.qnaList();
+		List<QnaVO> ar = qnaService.qnaList(pager);
 		model.addAttribute("list", ar);
 	}
 	

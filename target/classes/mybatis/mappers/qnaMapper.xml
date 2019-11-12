@@ -7,8 +7,16 @@
 <mapper namespace="qnaMapper">
   
   <select id="qnaList" parameterType="java.util.List" resultType="com.hh.s3.model.board.QnaVO">
-  	select * from qna order by num desc
+  	select * from
+  	(select rownum R, Q.*
+  	from (select * from qna order by num desc) Q)
+  	where R between 1 and 10
   </select>
+  
+  <select id="qnaCount" resultType="java.lang.Integer">
+  	select count(num) from qna
+  </select>
+  
   
   <insert id="qnaInsert" parameterType="com.hh.s3.model.board.QnaVO">
   	insert into qna values(board_seq.nextval , #{title}, #{writer},#{contents}, sysdate, 0,0,0,0)
