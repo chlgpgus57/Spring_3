@@ -22,14 +22,18 @@ public class QnaController {
 	private QnaService qnaService;
 	
 	@RequestMapping(value = "qnaList")
-	public void qnaList(Model model, Pager pager) throws Exception{
-		
+	public ModelAndView qnaList(Model model, Pager pager) throws Exception{
+		System.out.println(pager.getKind());
+		System.out.println(pager.getSearch());
 		List<QnaVO> ar = qnaService.qnaList(pager);
-		model.addAttribute("list", ar);
-		model.addAttribute("pager",pager);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
+		mv.setViewName("/qna/qnaList");
+		return mv;
 	}
 	
-	@RequestMapping(value = "qnaInsert" , method = RequestMethod.POST)
+	@RequestMapping(value = "qnaInsert" , method = {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView qnaInsert(QnaVO qnaVO) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();

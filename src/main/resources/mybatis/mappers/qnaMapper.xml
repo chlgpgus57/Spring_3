@@ -9,12 +9,35 @@
   <select id="qnaList" parameterType="com.hh.s3.util.Pager" resultType="com.hh.s3.model.board.QnaVO">
   	select * 
   	from (select rownum R, Q.*
-  	from (select * from qna order by num desc) Q)
+  	from (select * from qna
+  		<choose>
+  			<when test="kind == 'kt'">
+  				 where title like '%'||#{search}||'%'
+  			</when>
+  			<when test="kind == 'kw'">
+  				 where writer like '%'||#{search}||'%'
+  			</when>
+  			<otherwise>
+  				 where contents like '%'||#{search}||'%'		
+  			</otherwise>
+  		</choose>
+  	order by num desc) Q)
   	where R between #{startRow} and #{lastRow}
   </select>
   
-  <select id="qnaCount" resultType="java.lang.Integer">
+  <select id="qnaCount" parameterType="com.hh.s3.util.Pager" resultType="java.lang.Integer" >
   	select count(num) from qna
+  	<choose>
+  			<when test="kind == 'kt'">
+  				 where title like '%'||#{search}||'%'
+  			</when>
+  			<when test="kind == 'kw'">
+  				 where writer like '%'||#{search}||'%'
+  			</when>
+  			<otherwise>
+  				 where contents like '%'||#{search}||'%'		
+  			</otherwise>
+  		</choose>
   </select>
   
   

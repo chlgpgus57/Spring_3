@@ -26,9 +26,9 @@ public class QnaDAO {
 	}
 	
 	//count
-	public int qnaCount() throws Exception{
+	public int qnaCount(Pager pager) throws Exception{
 		
-		return sqlSession.selectOne(namespace+"qnaCount");
+		return sqlSession.selectOne(namespace+"qnaCount" , pager);
 	}
 	
 	

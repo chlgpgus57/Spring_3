@@ -3,7 +3,29 @@ package com.hh.s3.util;
 public class Pager {
 
 	private Integer curPage; //현재 페이지 번호
-	private Integer perPage; // 불러올때 글의 개수
+	private Integer perPage; //불러올때 글의 개수
+	private String kind;	// 검색 종류
+	private String search;	// 검색어
+	
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+
+	public String getSearch() {
+		if(search==null) {
+			search="";
+		}
+		return search;
+	}
+
+	public void setSearch(String search) {
+	
+		this.search = search;
+	}
 
 	
 	//DB

@@ -19,7 +19,7 @@ public class QnaService {
 		
 		pager.makeRow();
 		
-		pager.makePage(qnaDAO.qnaCount());
+		pager.makePage(qnaDAO.qnaCount(pager));
 		
 		return qnaDAO.qnaList(pager);
 	}
