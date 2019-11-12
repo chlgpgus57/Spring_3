@@ -12,7 +12,7 @@ import org.junit.Test;
 import com.hh.s3.dao.board.QnaDAO;
 import com.hh.s3.model.board.QnaVO;
 
-public class qnaDAOTest extends TestAbstractCase {
+public class QnaDAOTest extends TestAbstractCase {
 
 	@Inject
 	private QnaDAO qnaDAO;

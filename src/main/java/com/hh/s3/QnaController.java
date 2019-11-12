@@ -26,6 +26,7 @@ public class QnaController {
 		
 		List<QnaVO> ar = qnaService.qnaList(pager);
 		model.addAttribute("list", ar);
+		model.addAttribute("pager",pager);
 	}
 	
 	@RequestMapping(value = "qnaInsert" , method = RequestMethod.POST)

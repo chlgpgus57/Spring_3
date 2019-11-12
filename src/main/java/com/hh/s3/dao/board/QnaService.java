@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.hh.s3.model.board.QnaVO;
 import com.hh.s3.util.Pager;
-import com.hh.s3.util.RowMaker;
 
 @Service
 public class QnaService {
@@ -18,11 +17,11 @@ public class QnaService {
 	
 	public List<QnaVO> qnaList(Pager pager) throws Exception {
 		
-		RowMaker rowMaker  = pager.makeRow();
+		pager.makeRow();
 		
-		pager.makePager(qnaDAO.qnaCount());
+		pager.makePage(qnaDAO.qnaCount());
 		
-		 return qnaDAO.qnaList(rowMaker);
+		return qnaDAO.qnaList(pager);
 	}
 	
 	public int qnaInsert(QnaVO qnaVO) throws Exception {

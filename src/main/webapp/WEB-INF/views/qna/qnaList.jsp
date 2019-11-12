@@ -31,14 +31,11 @@
 		 	<c:forEach items="${list}" var="qnaVO">
 				<tr>
 					<td>${qnaVO.num}</td>
-					<td><a href="noticeSelect?num=${qnaVO.num}">${qnaVO.title}</a></td>
+					<td><a href="qnaSelect?num=${qnaVO.num}">${qnaVO.title}</a></td>
 					<td>${qnaVO.writer}</td>
 					<td>${qnaVO.contents}</td>
 					<td>${qnaVO.reg_date}</td>
 					<td>${qnaVO.hit}</td>
-					<td>${qnaVO.ref}</td>
-					<td>${qnaVO.step}</td>
-					<td>${qnaVO.depth}</td>
 				</tr>
 			</c:forEach>
 
@@ -46,17 +43,23 @@
   </table>
    <ul class="pagination">
    
-   	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+    <c:if test="${pager.curBlock gt 1}">
+    	<li><a href="./qnaList?curPage=${pager.startNum-1}">이전</a></li>
+    </c:if>
    
+   	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
 	    <li><a href="./qnaList?curPage=${i}">${i}</a></li>
-	
 	</c:forEach>
+   
+    <c:if test="${pager.curBlock lt pager.totalBlock}">
+    	<li><a href="./qnaList?curPage=${pager.lastNum+1}">다음</a></li>
+    </c:if>
    
   </ul>
   
-  <a class="btn btn-primary" href="qnaInsert">글쓰기</a>
+ 
 </div>
-
+ 	<a class="btn btn-primary" href="qnaInsert">글쓰기</a>
 
 
 

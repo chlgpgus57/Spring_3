@@ -6,11 +6,11 @@
   
 <mapper namespace="qnaMapper">
   
-  <select id="qnaList" parameterType="java.util.List" resultType="com.hh.s3.model.board.QnaVO">
-  	select * from
-  	(select rownum R, Q.*
+  <select id="qnaList" parameterType="com.hh.s3.util.Pager" resultType="com.hh.s3.model.board.QnaVO">
+  	select * 
+  	from (select rownum R, Q.*
   	from (select * from qna order by num desc) Q)
-  	where R between 1 and 10
+  	where R between #{startRow} and #{lastRow}
   </select>
   
   <select id="qnaCount" resultType="java.lang.Integer">
