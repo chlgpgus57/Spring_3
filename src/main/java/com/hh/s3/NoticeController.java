@@ -37,9 +37,10 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="noticeSelect")
-	public void noticeSelect(int num) throws Exception{
+	public void noticeSelect(Model model, int num) throws Exception{
 		
-		noticeService.noticeSelect(num);
+		NoticeVO noticeVO = noticeService.noticeSelect(num);
+		model.addAttribute("noticeVO", noticeVO);
 	}
 	
 	

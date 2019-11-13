@@ -25,7 +25,7 @@
 </div>
 
 
-
+<form action="./qnaInsert.jsp" method="get">
 <div class="container">
 	  <div class="table-responsive">          
 
@@ -74,7 +74,7 @@
 	<a class="btn btn-primary" href="qnaInsert">글쓰기</a>
 	</div>
 </div>
-
+</form>
 
 	<script type="text/javascript">
 		var kind = '${pager.kind}';

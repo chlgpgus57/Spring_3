@@ -33,7 +33,7 @@ public class QnaController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "qnaInsert" , method = {RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value = "qnaInsert" , method = RequestMethod.POST)
 	public ModelAndView qnaInsert(QnaVO qnaVO) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
@@ -54,7 +54,7 @@ public class QnaController {
 	@RequestMapping(value = "qnaInsert", method = RequestMethod.GET)
 	public String qnaInsert() throws Exception{
 
-		return "/qna/qnaInsert";
+		return "qna/qnaInsert";
 
 	}
 
