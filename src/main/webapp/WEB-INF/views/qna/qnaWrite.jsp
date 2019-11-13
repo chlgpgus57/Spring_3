@@ -18,7 +18,7 @@
 	  <h2>qna Write Page</h2>
 
 
-	  <form action="qnaInsert" method="post">
+	  <form action="qnaWrite" method="post">
 
 	    <div class="form-group">
 

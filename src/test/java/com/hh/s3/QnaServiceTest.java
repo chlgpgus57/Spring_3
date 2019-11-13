@@ -8,8 +8,8 @@ import javax.inject.Inject;
 
 import org.junit.Test;
 
-import com.hh.s3.dao.board.QnaService;
 import com.hh.s3.model.board.QnaVO;
+import com.hh.s3.service.board.QnaService;
 import com.hh.s3.util.Pager;
 
 public class QnaServiceTest extends TestAbstractCase{

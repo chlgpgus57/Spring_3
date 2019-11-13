@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.hh.s3.dao.board.QnaService;
 import com.hh.s3.model.board.QnaVO;
+import com.hh.s3.service.board.QnaService;
 import com.hh.s3.util.Pager;
 
 @Controller
@@ -33,11 +33,11 @@ public class QnaController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "qnaInsert" , method = RequestMethod.POST)
-	public ModelAndView qnaInsert(QnaVO qnaVO) throws Exception {
+	@RequestMapping(value = "qnaWrite" , method = RequestMethod.POST)
+	public ModelAndView qnaWrite(QnaVO qnaVO) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
-		int result = qnaService.qnaInsert(qnaVO);
+		int result = qnaService.qnaWrite(qnaVO);
 		
 		String msg ="등록실패";
 		if(result>0) {
@@ -51,14 +51,18 @@ public class QnaController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "qnaInsert", method = RequestMethod.GET)
-	public String qnaInsert() throws Exception{
+	@RequestMapping(value = "qnaWrite", method = RequestMethod.GET)
+	public String qnaWrite() throws Exception{
 
-		return "qna/qnaInsert";
+		return "qna/qnaWrite";
 
 	}
-
 	
-	
+	@RequestMapping(value = "qnaSelect")
+	public void qnaSelect(Model model , int num) throws Exception{
+		
+		QnaVO qnaVO = qnaService.qnaSelect(num);
+		model.addAttribute("qnaVO", qnaVO);
+	}
 	
 }

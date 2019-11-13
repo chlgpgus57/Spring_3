@@ -71,8 +71,13 @@
    
   </ul>
 
-	<a class="btn btn-primary" href="qnaInsert">글쓰기</a>
 	</div>
+	
+	<div>
+		<a class="btn btn-primary" href="qnaWrite">글쓰기</a>
+		
+	</div>
+	
 </div>
 </form>
 

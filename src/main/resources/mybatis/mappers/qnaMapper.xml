@@ -40,8 +40,11 @@
   		</choose>
   </select>
   
+  <select id="qnaSelect" parameterType="java.lang.Integer" resultType="com.hh.s3.model.board.QnaVO">
+  	select * from qna where num=#{num}
+  </select>
   
-  <insert id="qnaInsert" parameterType="com.hh.s3.model.board.QnaVO">
-  	insert into qna values(board_seq.nextval , #{title}, #{writer},#{contents}, sysdate, 0,0,0,0)
+  <insert id="qnaWrite" parameterType="com.hh.s3.model.board.QnaVO">
+  	insert into qna values(board_seq.nextval , #{title}, #{writer},#{contents}, sysdate, 0, board_seq.currval ,0,0)
   </insert>
 </mapper>

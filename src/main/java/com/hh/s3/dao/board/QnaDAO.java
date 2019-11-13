@@ -1,6 +1,8 @@
 package com.hh.s3.dao.board;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -33,8 +35,20 @@ public class QnaDAO {
 	
 	
 	//insert
-	public int qnaInsert(QnaVO qnaVO) throws Exception{
+	public int qnaWrite(QnaVO qnaVO) throws Exception{
 		
-		return sqlSession.insert(namespace+"qnaInsert",qnaVO);
+		return sqlSession.insert(namespace+"qnaWrite",qnaVO);
 	}
+	
+	
+	//select
+	public QnaVO qnaSelect(int num) throws Exception{
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("num", num);
+		return sqlSession.selectOne(namespace+"qnaSelect", num);
+		
+	}
+	
+	
 }
