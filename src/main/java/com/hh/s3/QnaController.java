@@ -21,6 +21,33 @@ public class QnaController {
 	@Inject
 	private QnaService qnaService;
 	
+	@RequestMapping(value="qnaReply" , method = RequestMethod.POST)
+	public ModelAndView qnaReply(QnaVO qnaVO) throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		int result = qnaService.qnaReply(qnaVO);
+		
+		String msg ="등록실패";
+		if(result>0) {
+			msg="등록성공";
+		}
+		
+		
+		mv.addObject("msg",msg);
+		mv.addObject("path","qnaList");
+		mv.setViewName("common/common_result");
+		return mv;
+	}
+	
+	
+	
+	@RequestMapping(value="qnaReply" , method = RequestMethod.GET)
+	public void qnaReply(int num , Model model) throws Exception{
+		model.addAttribute("num",num);
+	}
+	
+	
+	
 	@RequestMapping(value = "qnaList")
 	public ModelAndView qnaList(Model model, Pager pager) throws Exception{
 		System.out.println(pager.getKind());
@@ -64,5 +91,6 @@ public class QnaController {
 		QnaVO qnaVO = qnaService.qnaSelect(num);
 		model.addAttribute("qnaVO", qnaVO);
 	}
+	
 	
 }

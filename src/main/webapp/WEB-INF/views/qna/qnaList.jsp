@@ -7,25 +7,38 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../layout/bootStrap.jsp"/>
+<style type="text/css">
+	#sc{
+	width:200px;
+	float: left;
+	}
+	#sc2{
+	float: left;
+	}
+</style>
 </head>
 <body>
 <c:import url="../layout/nav.jsp"/>
 <div>
 	<form id ="frm" action="./qnaList">
 	
-		<input type="hidden" id="curPage" value="1" name="curPage"> 
+		<input type="hidden" id="curPage" value="1" name="curPage" > 
 		<select name="kind">
 			<option id="kt" value="kt">Title</option>
 			<option id="kc" value="kc">Contents</option>
 			<option id="kw" value="kw">Writer</option>
 		</select>
-		<input type="text" name="search" value="${pager.search}">
-		<button>검색</button>
+		<div class="input-group-btn">
+			<input type="text" name="search" value="${pager.search}" id="sc" placeholder="search" class="form-control">      			
+				
+	        <button class="btn btn-default" type="submit" id="sc2" ><i class="glyphicon glyphicon-search"></i></button>
+	     </div>
+			
 	</form>
 </div>
 
 
-<form action="./qnaInsert.jsp" method="get">
+<form action="./qnaWrite.jsp" method="get">
 <div class="container">
 	  <div class="table-responsive">          
 
@@ -45,7 +58,10 @@
 		 	<c:forEach items="${list}" var="qnaVO">
 				<tr>
 					<td>${qnaVO.num}</td>
-					<td><a href="qnaSelect?num=${qnaVO.num}">${qnaVO.title}</a></td>
+					<td>
+					<c:forEach begin="1" end="${qnaVO.depth}">--</c:forEach>
+					<a href="qnaSelect?num=${qnaVO.num}">${qnaVO.title}</a>
+					</td>
 					<td>${qnaVO.writer}</td>
 					<td>${qnaVO.contents}</td>
 					<td>${qnaVO.reg_date}</td>
@@ -74,7 +90,7 @@
 	</div>
 	
 	<div>
-		<a class="btn btn-primary" href="qnaWrite">글쓰기</a>
+		<a class="btn btn-default" href="qnaWrite">글쓰기</a>
 		
 	</div>
 	

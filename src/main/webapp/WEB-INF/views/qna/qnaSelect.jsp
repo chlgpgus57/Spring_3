@@ -23,11 +23,11 @@
 	      <textarea class="form-control" rows="37" id="comment" readonly="readonly">${qnaVO.contents}</textarea>
 	    </div>
 	    </div>
-	 	<a  href="./qnaUpdate?num=${qnaVO.num}" class="btn btn-danger">글 수정</a>
+	 	<a  href="./qnaUpdate?num=${qnaVO.num}" class="btn btn-default">글 수정</a>
 	 	<a  href="./qnaDelete?num=${qnaVO.num}" class="btn btn-danger">글 삭제</a>
-	 	<a  href="./qnaAnswerWrite?num=${qnaVO.num}" class="btn btn-primary">답글달기</a>
+	 	<a  href="./qnaReply?num=${qnaVO.num}" class="btn btn-primary">답글달기</a>
 	 	
-	    <a href="./qnaList" class="btn btn-primary">글 목록</a>
+	    <a href="./qnaList" class="btn btn-default">글 목록</a>
 	     
  	</div>
  </form>

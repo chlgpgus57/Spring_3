@@ -50,5 +50,14 @@ public class QnaDAO {
 		
 	}
 	
+	//reply_insert
+	public int qnaReply(QnaVO qnaVO) throws Exception{
+		return sqlSession.insert(namespace+"qnaReply", qnaVO);
+	}
+	
+	//reply_update
+	public int qnaReplyUpdate(QnaVO qnaVO) throws Exception{
+		return sqlSession.update(namespace+"qnaReplyUpdate", qnaVO);
+	}
 	
 }
