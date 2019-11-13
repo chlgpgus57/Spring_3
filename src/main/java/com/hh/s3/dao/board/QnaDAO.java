@@ -60,4 +60,10 @@ public class QnaDAO {
 		return sqlSession.update(namespace+"qnaReplyUpdate", qnaVO);
 	}
 	
+	//delete
+	public int qnaDelete(int num) throws Exception{
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("num", num);
+		return sqlSession.delete(namespace+"qnaDelete", num);
+	}
 }

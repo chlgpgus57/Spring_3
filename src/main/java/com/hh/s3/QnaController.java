@@ -40,12 +40,10 @@ public class QnaController {
 	}
 	
 	
-	
 	@RequestMapping(value="qnaReply" , method = RequestMethod.GET)
 	public void qnaReply(int num , Model model) throws Exception{
 		model.addAttribute("num",num);
 	}
-	
 	
 	
 	@RequestMapping(value = "qnaList")
@@ -82,7 +80,25 @@ public class QnaController {
 	public String qnaWrite() throws Exception{
 
 		return "qna/qnaWrite";
-
+	}
+	
+	@RequestMapping(value = "qnaDelete")
+	public ModelAndView qnaDelete(int num) throws Exception{
+	
+		ModelAndView mv = new ModelAndView();
+		int result = qnaService.qnaDelete(num);
+		
+		String msg ="삭제실패";
+		if(result>0) {
+			msg="삭제성공";
+		}
+		
+		
+		mv.addObject("msg",msg);
+		mv.addObject("path","qnaList");
+		mv.setViewName("common/common_result");
+		return mv;
+		
 	}
 	
 	@RequestMapping(value = "qnaSelect")

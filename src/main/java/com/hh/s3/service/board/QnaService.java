@@ -49,11 +49,7 @@ public class QnaService {
 		return result;
 	}
 	
-	/*
-	 * public int qnaReplyUpdate(QnaVO qnaVO) throws Exception{
-	 * 
-	 * //부모의 글번호가 QnaVO에 담겨서 옴 }
-	 * 
-	 * 
-	 */
+	public int qnaDelete(int num) throws Exception {
+		return qnaDAO.qnaDelete(num);
+	}
 }

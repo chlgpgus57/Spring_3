@@ -66,6 +66,11 @@
   <update id="qnaReplyUpdate" parameterType="com.hh.s3.model.board.QnaVO">
   	update qna set step=step+1
   	where ref=#{ref} and step > #{step}
- 
   </update>
+  
+  <delete id="qnaDelete" parameterType="com.hh.s3.model.board.QnaVO">
+  	delete qna where num=#{num}
+  </delete>
+  
+  
 </mapper>
